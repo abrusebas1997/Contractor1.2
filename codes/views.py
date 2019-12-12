@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic import CreateView
+from django.views import generic
 from django.urls import reverse_lazy
 
 
@@ -10,7 +8,7 @@ from codes.models import Code
 from django.http import HttpResponse, HttpResponseRedirect
 
 
-class CodesListView(ListView):
+class CodesListView(generic.ListView):
     """ Renders a list of all Codes. """
     model = Code
 
@@ -21,7 +19,7 @@ class CodesListView(ListView):
           'Codes': Codes
         })
 
-class CodesDetailView(DetailView):
+class CodesDetailView(generic.DetailView):
     """ Renders a specific Code based on it's slug."""
     model = Code
 
@@ -31,7 +29,7 @@ class CodesDetailView(DetailView):
         return render(request, 'Code.html', {
           'Code': Code
         })
-class CodesCreateView(CreateView):
+class CodesCreateView(generic.CreateView):
     form_class = CodeForm
     template_name = "new_Code.html"
 
@@ -41,3 +39,13 @@ class CodesCreateView(CreateView):
             codes = form.save()
             codes.save()
             return HttpResponseRedirect(reverse_lazy("codes-list-Code", args=[codes.slug]))
+
+class CodesUpdateView(generic.UpdateView):
+    model = Code
+    fields = ['title','content']
+    template_name = 'new_page.html'
+
+class PageDeleteView(generic.DeleteView):
+    model = Code
+    success_url = reverse_lazy('wiki-list-page')
+    template_name = 'confirm_delete.html'
