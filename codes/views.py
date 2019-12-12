@@ -45,7 +45,7 @@ class CodesUpdateView(generic.UpdateView):
     fields = ['title','content']
     template_name = 'new_page.html'
 
-class PageDeleteView(generic.DeleteView):
+class CodesDeleteView(generic.DeleteView):
     model = Code
     success_url = reverse_lazy('wiki-list-page')
     template_name = 'confirm_delete.html'
