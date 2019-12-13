@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>New post</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'codes-list-Code' %}" class="btn btn-success">submit</a>
+    </form>
+{% endblock %}

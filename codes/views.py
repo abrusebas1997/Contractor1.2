@@ -26,12 +26,12 @@ class CodesDetailView(generic.DetailView):
     def get(self, request, slug):
         """ Returns a specific codes Code by slug. """
         Code = self.get_queryset().get(slug__iexact=slug)
-        return render(request, 'Code.html', {
+        return render(request, 'code.html', {
           'Code': Code
         })
 class CodesCreateView(generic.CreateView):
     form_class = CodeForm
-    template_name = "new_Code.html"
+    template_name = "new_code.html"
 
     def post(self, request, *args, **kwargs):
         form = CodeForm(request.POST)
@@ -43,9 +43,9 @@ class CodesCreateView(generic.CreateView):
 class CodesUpdateView(generic.UpdateView):
     model = Code
     fields = ['title','content']
-    template_name = 'new_page.html'
+    template_name = 'new_code.html'
 
 class CodesDeleteView(generic.DeleteView):
     model = Code
-    success_url = reverse_lazy('wiki-list-page')
+    success_url = reverse_lazy('codes-list-Code')
     template_name = 'confirm_delete.html'
