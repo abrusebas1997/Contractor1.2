@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from accounts.forms import UserCreationForm
@@ -20,8 +20,8 @@ class FormCreationTest(TestCase):
         form_info = {
             'username': 'chao1',
             'email': 'test@testing.com',
-            'password1': 'password',
-            'password2': 'password',
+            'password1': 'mypassword123',
+            'password2': 'mypassword123',
          }
 ​
         form = UserCreationForm(data=form_info)
