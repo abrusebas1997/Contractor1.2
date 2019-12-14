@@ -141,6 +141,13 @@ PROJECT_CODE_TITLE_MAX_LENGTH = 600
 LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
 LOGOUT_REDIRECT_URL = "/"
 
+# Emails
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+# stripe
+STRIPE_SECRET_KEY = 'sk_test_URzgE3o9NIn3x3XkSNeqpBOi00uvr3mEGB'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_COEOKTOmq1GU4jvt6MZSwL5s000u4n9dJv'
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
 # in this directory, and add settings there.
