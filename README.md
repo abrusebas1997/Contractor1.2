@@ -1,5 +1,3 @@
-![alt text]()
-
 
 
 ### Basic Site Walk-through
