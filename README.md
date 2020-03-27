@@ -1,29 +1,71 @@
--Heroku deployment link:
-    .https://buycode.herokuapp.com/
+![alt text]()
 
--You can run it locally with:
-    .http://127.0.0.1:8000/ local host
 
--This app works with django 2.2.7
--To run all the requirements use  pip3 freeze > requirements.txt
 
--Apps:
-    .Accounts
-    .Payments
-    .project
-    .stripe
+### Basic Site Walk-through
 
--Admin:
-    .Django admin
-    .Stripe admin(for payments)
+New users need to sign up for an account. Once a user is logged in they are going to be able to look for codes to buy and upload codes to sell. Once you click on one of the codes, you are going to be able to buy it with stripe payments. 
 
--Test Code:
-    .In accounts
-    .In project
+### Features
 
--CRUD included:
-    .create is going to be on the top right
-    .read and update are going to be on the card
-    .delete is going to appear once you open the card
+* Account creation
+* Post creation 
+* Authenticated user can make posts
 
--Authenticated to create just for users registered
+
+### Prerequisites
+
+Must have Django 3 and Python 2.7 installed
+
+To log into admin
+
+```
+username: admin
+email: admin@admin.com
+password: admin
+```
+To test the payment functionality
+
+```
+email: email@gmail.com
+card number: 424242424242
+MM/YY: 01/20
+CVC: 123
+```
+
+### Installing
+
+Project code can be viewed locally by cloning or forking then open with any integrated development environment
+
+To run project in an IDE, run the following in terminal
+```
+$ python3 manage.py runserver
+```
+
+## Built With
+
+* [Django](https://www.djangoproject.com/) - The web framework used
+* [Python](https://www.python.org/) - Language
+* [HTML](https://en.wikipedia.org/wiki/HTML) - For webpage
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - To make the effect for the tittle
+
+
+
+## Deployment
+
+Project is deployed to https://buycode.herokuapp.com/
+
+## Authors
+
+* Sebastian Abarca - portfolio can be found at:
+https://www.makeschool.com/portfolio/abrusebas16
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+## Acknowledgments
+
+From this project I learned how to link the static css with my templates
